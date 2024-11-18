@@ -1,6 +1,7 @@
+<!-- Seperate the component to the layout -->
 <template>
   <div>
-    <Table :jokes="jokes" />
+    <Table :jokes="jokes" :types="types" />
   </div>
 </template>
 
@@ -14,19 +15,23 @@ export default {
   data() {
     return {
       jokes: [],
+      types: [],
     }
   },
   mounted() {
-    this.fetchJokes()
+    this.fetchJokesData()
   },
   methods: {
-    async fetchJokes() {
+    async fetchJokesData() {
       try {
+        //Let mounted the fetch all the data that we'll need
         const {
-          Read: { readRandom },
+          Read: { readRandom, readType },
         } = JokesApiMethods
-        const responseJokes = await readRandom()
+        const [responseJokes, responseTypes] = await Promise.all([readRandom(), readType()])
+
         this.jokes = responseJokes
+        this.types = responseTypes
       } catch (error) {
         console.error(error)
       }
