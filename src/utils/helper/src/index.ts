@@ -15,9 +15,9 @@ const pushValue = (
   value: { id: number; emoji: string; key: string },
 ) => array.push(value)
 
-const laughSound = () => new Audio('/src/assets/sounds/laugh_effect.mp3').play()
+const laughSound = () => new Audio('/sounds/laugh_effect.mp3').play()
 
-const donkeySound = () => new Audio('/src/assets/sounds/donkey_effect.mp3').play()
+const donkeySound = () => new Audio('/sounds/donkey_effect.mp3').play()
 
 const getRandomValue = (array: (string | number)[]) =>
   array.length ? array[Math.floor(Math.random() * array.length)] : null
