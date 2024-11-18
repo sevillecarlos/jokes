@@ -3,9 +3,9 @@ import { get } from '../base'
 import type { Jokes } from '../../model'
 import { type AxiosResponse, AxiosError } from 'axios'
 
-const getData = (url: string): Promise<Jokes | Jokes[] | AxiosError<unknown, any>> =>
+const getData = (url: string): Promise<Jokes | Jokes[] | String[] | AxiosError<unknown, any>> =>
   get(url)
-    .then((response: AxiosResponse<Jokes | Jokes[]>) => response.data)
+    .then((response: AxiosResponse<Jokes | Jokes[] | String[]>) => response.data)
     .catch((error: AxiosError) => error)
 
 export { getData }
