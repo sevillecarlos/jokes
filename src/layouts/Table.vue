@@ -35,7 +35,7 @@
       <span>{{ getPosition(revealType, 1).emoji }} - {{ donkeyCounter }}</span>
     </div>
 
-    <div v-if="laughCounter === 1 && !prize" class="prize-container">
+    <div v-if="laughCounter === 10 && !prize" class="prize-container">
       <button @click="prizeJoke">Prize Joke 🏆</button>
     </div>
 
